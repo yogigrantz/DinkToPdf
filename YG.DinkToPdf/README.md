@@ -6,7 +6,7 @@ YG.DinktoPdf targets .NET .NET 8+ projects.
 
 Why YG.DinktoPdf Exists (The Honest Version)
 
-because the original DinktoPdf was published in 2017 for .net core 1 and does not seem to be maintained
+because the original DinktoPdf was published in 2018 for .net core 1 
 
 Frameworks are tools. Production is the truth.
 
