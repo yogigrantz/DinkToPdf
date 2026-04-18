@@ -1,77 +1,69 @@
-﻿# YG.DinktoPdf
+﻿# YG.DinkToPdf
 
-A lightweight c# .net class library that wraps libwkhtltox.lb c++ code to convert html to pdf printed pages
+A lightweight .NET 8+ wrapper for the native wkhtmltopdf library that converts HTML into PDF documents.
 
-YG.DinktoPdf targets .NET .NET 8+ projects.
+This package modernizes the original DinkToPdf project for current .NET applications.
 
-Why YG.DinktoPdf Exists (The Honest Version)
+## Why YG.DinkToPdf Exists
 
-because the original DinktoPdf was published in 2018 for .net core 1 
+The original DinkToPdf package was useful but has not been actively maintained for years and targeted early .NET Core versions.
 
-Frameworks are tools. Production is the truth.
+YG.DinkToPdf updates that wrapper for modern .NET 8+ projects and includes the required native `libwkhtmltox.dll` for Windows x64.
+
+## Features
+
+- Targets .NET 8+
+- Includes native `libwkhtmltox.dll`
+- HTML to PDF conversion
+- Simple dependency injection setup
+- Compatible with ASP.NET Core / console / worker apps
 
 ## Installation
 
-Include libwkhtmltox and this package in the project file 
-  <ItemGroup>
-    <None Remove="libwkhtmltox.lib" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="libwkhtmltox.lib">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="DinkToPdf" Version="1.0.8" />
-    ....
-  </ItemGroup>
-
-⚠️ Use code inside a Try catch block. For brevity, there is no try catch block in GetDataSet
+<ItemGroup>
+  <PackageReference Include="YG.DinkToPdf" Version="1.1.1" />
+</ItemGroup>
 
 ## Usage
+    //In program.cs with DI
+    using DinkToPdf;
+    using DinkToPdf.Contracts;
 
-        DI IoC registration: 
+    builder.Services.AddSingleton<IConverter>(new SynchronizedConverter(new PdfTools()));
 
-        using DinkToPdf;
-        using DinkToPdf.Contracts;
-     
-        builder.Services.AddSingleton<IConverter>(new SynchronizedConverter(new PdfTools()));
+    //In functions: 
+    //// Inject IConverter into your service/class
 
-
-        var doc = new HtmlToPdfDocument()
+    var doc = new HtmlToPdfDocument
+    {
+        GlobalSettings =
         {
-            GlobalSettings = {
-                PaperSize = PaperKind.A4
-                },
-            Objects = {
-                    new ObjectSettings {
-                    HtmlContent = sb.ToString()
-                }
+            PaperSize = PaperKind.A4
+        },
+        Objects =
+        {
+            new ObjectSettings
+            {
+                HtmlContent = html
             }
-        };
+        }
+    };
 
-        byte[] pdf = _converter.Convert(doc);
-        return pdf;
+    byte[] pdf = _converter.Convert(doc);
 
-## Examples
+## Platform Support
 
-
-Output:
-----------
- 
-The output is a Tuple<DataSet,Dictionary<string, object>, Exception> for GetDataSet with SP or Dictionary for ExecSP. 
-
-
-## Dependencies
-
-Microsoft.Data.SqlClient
-
-## Contributing
-
-Any new ideas on how to enhance this class without adding much complexity, please adhere to SOLID principle   
+    Windows X64
 
 ## License
 
-This project is licensed under the MIT License(LICENSE).  
+    MIT
+
+## Third-Party Native Dependency
+
+This package includes `libwkhtmltox.dll`, provided by the wkhtmltopdf project.
+
+Project: wkhtmltopdf  
+Source: https://wkhtmltopdf.org/  
+License: LGPLv3

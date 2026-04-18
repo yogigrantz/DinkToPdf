@@ -9,19 +9,18 @@
     <PackageProjectUrl>https://github.com/yogigrantz/DinkToPdf</PackageProjectUrl>
     <Authors>Yogi Grantz</Authors>
     <Company>Yogi Grantz C# Services</Company>
-    <PackageReleaseNotes>Upgraded to .net 8</PackageReleaseNotes>
+    <PackageReleaseNotes>Included the missing libwkhtmltox.dll in the package</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/yogigrantz/DinkToPdf</RepositoryUrl>
-    <AssemblyVersion>1.1.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
+    <AssemblyVersion>1.1.1</AssemblyVersion>
+    <FileVersion>1.1.1</FileVersion>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
-    <Description>.net 8 Wrapper for wkhtmltopdf library that uses Webkit engine to convert HTML pages to PDF</Description>
-    <Version>1.1.0</Version>
+    <Description>.net 8 Wrapper for wkhtmltopdf c++ library that uses Webkit engine to convert HTML pages to PDF</Description>
+    <Version>1.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
-
   <ItemGroup>
     <None Update="License.txt">
       <Pack>True</Pack>
@@ -32,5 +31,12 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
+	<ItemGroup>
+		<None Include="native\win-x64\libwkhtmltox.dll">
+			<Pack>true</Pack>
+			<PackagePath>runtimes/win-x64/native/</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>

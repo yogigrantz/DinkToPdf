@@ -1,0 +1,6 @@
+﻿
+This package includes libwkhtmltox.dll from the wkhtmltopdf project.
+
+wkhtmltopdf / libwkhtmltox
+https://wkhtmltopdf.org/
+Licensed under LGPLv3
