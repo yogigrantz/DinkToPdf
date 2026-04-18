@@ -11,10 +11,11 @@
     <Company>Yogi Grantz C# Services</Company>
     <PackageReleaseNotes>Upgraded to .net 8</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/yogigrantz/DinkToPdf</RepositoryUrl>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1</FileVersion>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <Description>.net 8 Wrapper for wkhtmltopdf library that uses Webkit engine to convert HTML pages to PDF</Description>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
