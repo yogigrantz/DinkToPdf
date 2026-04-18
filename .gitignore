@@ -1,3 +1,7 @@
+.vs/
+bin/
+obj/
+
 src/DinkToPdf/bin/
 src/DinkToPdf/obj/
 src/DinkToPfd.ConsoleApp/obj/
