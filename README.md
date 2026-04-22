@@ -6,7 +6,7 @@
 Library can be installed through Nuget. Run command bellow from the package manager console:
 
 ```
-PM> Install-Package DinkToPdf
+PM> Install-Package YG.DinkToPdf
 ```
 
 Copy native library to root folder of your project. From there .NET Core loads native library when native method is called with P/Invoke. You can find latest version of native library [here](https://github.com/rdvojmoc/DinkToPdf/tree/master/v0.12.4). Select appropriate library for your OS and platform (64 or 32 bit).
